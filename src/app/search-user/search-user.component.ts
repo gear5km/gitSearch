@@ -11,7 +11,7 @@ import { FormControl, FormsModule } from '@angular/forms';
 })
 export class SearchUserComponent implements OnInit {
 
-  userQuery = new FormControl('');
+  userQuery = new FormControl('');// Takes in a profile name from input
 
   user = new GitUser('','','','');
   testUser: any;
