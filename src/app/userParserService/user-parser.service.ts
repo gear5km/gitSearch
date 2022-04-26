@@ -27,6 +27,7 @@ export class UserParserService {
     interface getData{
       login:string;
       id:string;
+      avatar_url:string;
     }
       this.userUrl='https://api.github.com/users/'+ userInput //+'?access_token=' + this.apiKey;
       return this.http.get<getData>(this.userUrl)

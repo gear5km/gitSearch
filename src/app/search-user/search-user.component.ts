@@ -13,7 +13,7 @@ export class SearchUserComponent implements OnInit {
 
   userQuery = new FormControl('');
 
-  user = new GitUser('','','');
+  user = new GitUser('','','','');
   testUser: any;
 
   constructor(private userParserService:UserParserService) {}
@@ -21,6 +21,7 @@ export class SearchUserComponent implements OnInit {
   checkUser(){
     this.userParserService.getUser(this.userQuery.value).subscribe(data=>{
       this.user.userLogin = data.login;
+      this.user.avatar_url = data.avatar_url
       alert(this.user.userLogin)
     })
   }
