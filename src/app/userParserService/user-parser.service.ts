@@ -15,8 +15,6 @@ export class UserParserService {
 
   //Authorization: token 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' https://api.github.com/gear5km
 
-  //user= new GitUser();
-
   userUrl:any;
 
   constructor(private http:HttpClient) {
@@ -31,11 +29,6 @@ export class UserParserService {
     }
       this.userUrl='https://api.github.com/users/'+ userInput //+'?access_token=' + this.apiKey;
       return this.http.get<getData>(this.userUrl)
-      //this.http.get<getData>(this.userUrl)
-      //return this.user.userLogin
-      //this.user.userLogin='gear5km';
-      //this.user.userID= '12345'
-      //return this.user;
 
     }
 
