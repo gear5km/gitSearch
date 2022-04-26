@@ -11,21 +11,18 @@ import { FormControl, FormsModule } from '@angular/forms';
 })
 export class SearchUserComponent implements OnInit {
 
-  userInput= new FormControl('');
+  userQuery = new FormControl('');
 
   user = new GitUser('','','');
   testUser: any;
 
-  constructor(private userParserService:UserParserService) {
-    this.userParserService.getUser().subscribe(data=>{
+  constructor(private userParserService:UserParserService) {}
+
+  checkUser(){
+    this.userParserService.getUser(this.userQuery.value).subscribe(data=>{
       this.user.userLogin = data.login;
       alert(this.user.userLogin)
     })
-  }
-
-  checkUser(){
-    alert(this.user.userLogin)
-
   }
 
 

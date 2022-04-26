@@ -2,7 +2,7 @@
 
 <div class="container">
   <h2>search-userworks!</h2>
-  <input type="text" [formControl]="userInput" class="form-control" style="width:300px"/>
+  <input type="text" [formControl]="userQuery" class="form-control" style="width:300px"/>
   <br>
   <button class="btn btn-primary" (click)="checkUser()" style="width: 150px; height:50px">Search User</button>
   <h4>Current User Is: {{this.user.userLogin}}</h4>
