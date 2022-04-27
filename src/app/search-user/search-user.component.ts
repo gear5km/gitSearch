@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserParserService } from '../userParserService/user-parser.service';
 import {GitUser} from '../git-user-template';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { FormControl, FormsModule } from '@angular/forms';
 
 @Component({
@@ -16,7 +17,7 @@ export class SearchUserComponent implements OnInit {
   user = new GitUser('','','',''); //
   testUser: any;
   checkUserInit = false; // Checks if a search query has been attempted in order to display the user area
-  constructor(private userParserService:UserParserService) {}
+  constructor(private userParserService:UserParserService, private router:Router) {}
 
   checkUser(){
 
@@ -32,6 +33,8 @@ export class SearchUserComponent implements OnInit {
 
     if(this.user.userLogin != "NO user Found!"){
       this.checkUserInit=true
+      this.router.navigate(['/search-repo',this.user])
+
     }
     else{
       this.checkUserInit=false

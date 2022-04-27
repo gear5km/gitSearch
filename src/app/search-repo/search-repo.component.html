@@ -1,2 +1,6 @@
 
 <p>This is {{user.userLogin}} 's Repository</p>
+<button class="btn btn-primary" (click)="checkRepo()">Show Repos</button>
+<div class="container" *ngFor="let userRepo of userRepo">
+  <p>{{userRepo.name}}</p>
+</div>
