@@ -3,5 +3,8 @@
 <input type="text" [formControl]="repoQuery" class="form-control" style="width:300px"/>
 <button class="btn btn-primary" (click)="getRepo()">GET REPOS!</button>
 <div class="container" *ngFor="let userRepo of userRepo">
-  <p>{{userRepo.name}}</p>
+  <div class="card">
+    <p>{{userRepo.name}}</p>
+  </div>
+
 </div>
