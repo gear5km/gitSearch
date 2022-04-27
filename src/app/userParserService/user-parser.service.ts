@@ -21,11 +21,11 @@ export class UserParserService {
   userUrl:any;
   user: GitUser;
   //repos: GitRepo;
-  repos:  GitRepo[]
+  repos=  new GitRepo('','')
 
   constructor(private http:HttpClient) {
     this.user=  new GitUser('','','','');
-    this.repos= []
+
    }
 
    getUser(userQuery: string){
@@ -56,7 +56,7 @@ export class UserParserService {
 
     }
 
-    getRepos(userQuery: string){
+    getRepos(userQuery: string, userRepo: string){
       interface getRepoData{
         name:any;
         description:any;
@@ -66,14 +66,14 @@ export class UserParserService {
 
         let promise = new Promise((resolve,reject)=>{
           this.http.get<getRepoData>(environment.gitUrl+ userQuery+environment.repos ).toPromise().then(response=>{
-            this.repos = response?.name;
+            this.repos = response?.name,
             //this.repos.description = response?.description
-
             resolve(this.repos)
-            alert(this.repos[0].name)
+            alert(this.repos.name)
           },
           error=>{
-            this.repos = [{name: "NULL", description:"NULL"}]
+            this.repos.name ="Not Found",
+            this.repos.description= "Not Found"
 
             reject(error)
           })

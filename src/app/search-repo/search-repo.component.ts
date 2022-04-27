@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl,FormsModule } from '@angular/forms';
 import { GitUser } from '../git-user-template';
 import { GitRepo } from '../git-repo-template';
 import { UserParserService } from '../userParserService/user-parser.service';
@@ -13,14 +14,16 @@ export class SearchRepoComponent implements OnInit {
 
   @Input()user = new GitUser('','','','');
 
-  userRepo: GitRepo[]
+  repoQuery= new FormControl('')
+
+  userRepo= new GitRepo ('','')
 
   checkRepo(){
-    alert(this.userRepo[0].name)
+    alert(this.userRepo.name)
   }
 
   constructor(private userParserService:UserParserService) {
-    this.userParserService.getRepos(this.user.userLogin)
+    this.userParserService.getRepos(this.user.userLogin, this.repoQuery.value)
     this.userRepo = this.userParserService.repos
     //this.userRepo.description= this.userParserService.repos.description
    }
