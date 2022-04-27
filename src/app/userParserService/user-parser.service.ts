@@ -58,7 +58,7 @@ export class UserParserService {
 
     getRepos(userQuery: string){
     this.userUrl=(environment.gitUrl)+ userQuery + environment.repos //+'?access_token=' + this.apiKey;
-    return this.http.get<(this.userUrl);
+    return this.http.get(this.userUrl);
       }
 
 }

@@ -9,6 +9,7 @@
 # Node
 /node_modules
 /node_modules23
+/node_modules24
 npm-debug.log
 yarn-error.log
 

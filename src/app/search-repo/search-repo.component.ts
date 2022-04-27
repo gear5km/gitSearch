@@ -3,7 +3,7 @@ import { FormControl,FormsModule } from '@angular/forms';
 import { GitUser } from '../git-user-template';
 import { GitRepo } from '../git-repo-template';
 import { UserParserService } from '../userParserService/user-parser.service';
-//import { ActivatedRoute, ParamMap  } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-search-repo',
@@ -18,7 +18,7 @@ export class SearchRepoComponent implements OnInit {
 
   userRepo: any;
 
-  checkRepo(){
+  getRepo(){
     interface getRepoData
     {
       id: string ,
@@ -29,18 +29,23 @@ export class SearchRepoComponent implements OnInit {
 
   type simpleType = getRepoData[];
 
-    this.userParserService.getRepos(this.user.userLogin).subscribe(data=>{
-      this.userRepo = this.userParserService.repos
-    })
+    this.userParserService.getRepos(this.user.userLogin).subscribe((response: any) => {
+      this.userRepo = response
+ });
+
 
     alert(this.userRepo.length)
+
+
   }
 
-  constructor(private userParserService:UserParserService) {
-   }
+  constructor(private userParserService:UserParserService) {}
 
   ngOnInit(): void {
-    alert(this.userRepo)
+
+
+
+
   }
 
 }

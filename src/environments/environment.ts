@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   gitUrl:'https://api.github.com/users/',
-  repos:'repos'
+  repos:'/repos'
 };
 
 /*
