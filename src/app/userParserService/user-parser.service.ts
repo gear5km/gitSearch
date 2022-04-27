@@ -9,6 +9,7 @@ import {environment} from '../../environments/environment'
 })
 export class UserParserService {
 
+
   apiKey: any ="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"
   userNameEntry: any = 'gear5km'
 
@@ -17,20 +18,44 @@ export class UserParserService {
   //Authorization: token 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' https://api.github.com/gear5km
 
   userUrl:any;
+  user: GitUser;
 
   constructor(private http:HttpClient) {
-    //this.user= new GitUser
+    this.user=  new GitUser('','','','');
    }
 
-   getUser(userInput: string){
+   getUser(userQuery: string){
     interface getData{
-      login:string;
-      id:string;
-      avatar_url:string;
+      login:any;
+      id:any;
+      avatar_url:any;
     }
-      this.userUrl=(environment.gitUrl)+ userInput //+'?access_token=' + this.apiKey;
-      return this.http.get<getData>(this.userUrl)
+      //this.userUrl=(environment.gitUrl)+ userQuery //+'?access_token=' + this.apiKey;
+      //return this.http.get<getData>(this.userUrl)
+
+      let promise = new Promise((resolve,reject)=>{
+        this.http.get<getData>(environment.gitUrl+ userQuery).toPromise().then(response=>{
+          this.user.userLogin = response?.login;
+          this.user.avatar_url = response?.avatar_url
+
+          resolve(this.user)
+          alert(this.user.userLogin)
+        },
+        error=>{
+          this.user.userLogin = "NO user Found!"
+          this.user.avatar_url = "Null"
+
+          reject(error)
+        })
+      })
+      return promise
 
     }
+
+    //getRepo(repoQuery:string){
+    //  interface getD
+    //}
+
+
 
 }

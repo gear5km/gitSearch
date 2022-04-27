@@ -19,12 +19,24 @@ export class SearchUserComponent implements OnInit {
   constructor(private userParserService:UserParserService) {}
 
   checkUser(){
-    this.checkUserInit=true;
-    this.userParserService.getUser(this.userQuery.value).subscribe(data=>{
-      this.user.userLogin = data.login;
-      this.user.avatar_url = data.avatar_url
-      alert(this.user.userLogin)
-    })
+
+    //this.userParserService.getUser(this.userQuery.value).subscribe(data=>{
+    //  this.user.userLogin = data.login;
+    //  this.user.avatar_url = data.avatar_url
+    //  alert(this.user.userLogin)
+    //  this.checkUserInit=true
+    //  })
+    this.userParserService.getUser(this.userQuery.value)
+    this.user.userLogin= this.userParserService.user.userLogin
+    this.user.avatar_url= this.userParserService.user.avatar_url
+
+    if(this.user.userLogin != "NO user Found!"){
+      this.checkUserInit=true
+    }
+    else{
+      this.checkUserInit=false
+    }
+
   }
 
 
