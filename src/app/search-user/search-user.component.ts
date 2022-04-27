@@ -13,12 +13,13 @@ export class SearchUserComponent implements OnInit {
 
   userQuery = new FormControl('');// Takes in a profile name from input
 
-  user = new GitUser('','','','');
+  user = new GitUser('','','',''); //
   testUser: any;
-
+  checkUserInit = false; // Checks if a search query has been attempted in order to display the user area
   constructor(private userParserService:UserParserService) {}
 
   checkUser(){
+    this.checkUserInit=true;
     this.userParserService.getUser(this.userQuery.value).subscribe(data=>{
       this.user.userLogin = data.login;
       this.user.avatar_url = data.avatar_url

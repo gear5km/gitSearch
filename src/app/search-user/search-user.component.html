@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
 <div class="container">
-  <h2>search-userworks!</h2>
-  <input type="text" [formControl]="userQuery" class="form-control" style="width:300px"/>
+  <!--<h2>search-userworks!</h2>-->
+  <input type="text" [formControl]="userQuery" placeholder="Enter a git User Name here" class="form-control" style="width:300px"/>
   <br>
-  <button class="btn btn-primary" (click)="checkUser()" style="width: 150px; height:50px">Search User</button>
-  <h4>Current User Is: {{this.user.userLogin}}</h4>
-  <img [src]="this.user.avatar_url" style="width:250px; height:350px">
-
+  <button class="btn btn-primary" (click)="checkUser()" style="width: 150px; height:50px; margin-left:5%">Search User</button>
+  <div *ngIf="checkUserInit" class="container" style="margin-top:10%">
+    <h4> User Search result: {{this.user.userLogin}}</h4>
+    <img [src]="this.user.avatar_url" style="width:250px; height:350px">
+  </div>
 </div>

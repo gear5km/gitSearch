@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { GitUser} from '../git-user-template';
 import { HttpClient } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
+import {environment} from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class UserParserService {
       id:string;
       avatar_url:string;
     }
-      this.userUrl='https://api.github.com/users/'+ userInput //+'?access_token=' + this.apiKey;
+      this.userUrl=(environment.gitUrl)+ userInput //+'?access_token=' + this.apiKey;
       return this.http.get<getData>(this.userUrl)
 
     }
