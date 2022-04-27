@@ -16,16 +16,27 @@ export class SearchRepoComponent implements OnInit {
 
   repoQuery= new FormControl('')
 
-  userRepo= new GitRepo ('','')
+  userRepo: any;
 
   checkRepo(){
-    alert(this.userRepo.name)
+    interface getRepoData
+    {
+      id: string ,
+      node_id: string,
+      name: string,
+      full_name: string,
+    }
+
+  type simpleType = getRepoData[];
+
+    this.userParserService.getRepos(this.user.userLogin).subscribe(data=>{
+      this.userRepo = this.userParserService.repos
+    })
+
+    alert(this.userRepo.length)
   }
 
   constructor(private userParserService:UserParserService) {
-    this.userParserService.getRepos(this.user.userLogin, this.repoQuery.value)
-    this.userRepo = this.userParserService.repos
-    //this.userRepo.description= this.userParserService.repos.description
    }
 
   ngOnInit(): void {

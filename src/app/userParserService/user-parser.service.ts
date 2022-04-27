@@ -4,6 +4,7 @@ import { GitRepo } from '../git-repo-template';
 import { HttpClient } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
 import {environment} from '../../environments/environment'
+import { string } from 'node_modules23/postcss-selector-parser/postcss-selector-parser';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,7 @@ export class UserParserService {
 
   userUrl:any;
   user: GitUser;
-  //repos: GitRepo;
-  repos=  new GitRepo('','')
+  repos:any;
 
   constructor(private http:HttpClient) {
     this.user=  new GitUser('','','','');
@@ -56,36 +56,9 @@ export class UserParserService {
 
     }
 
-    getRepos(userQuery: string, userRepo: string){
-      interface getRepoData{
-        name:any;
-        description:any;
+    getRepos(userQuery: string){
+    this.userUrl=(environment.gitUrl)+ userQuery + environment.repos //+'?access_token=' + this.apiKey;
+    return this.http.get<(this.userUrl);
       }
-        //this.userUrl=(environment.gitUrl)+ userQuery //+'?access_token=' + this.apiKey;
-        //return this.http.get<getData>(this.userUrl)
-
-        let promise = new Promise((resolve,reject)=>{
-          this.http.get<getRepoData>(environment.gitUrl+ userQuery+environment.repos ).toPromise().then(response=>{
-            this.repos = response?.name,
-            //this.repos.description = response?.description
-            resolve(this.repos)
-            alert(this.repos.name)
-          },
-          error=>{
-            this.repos.name ="Not Found",
-            this.repos.description= "Not Found"
-
-            reject(error)
-          })
-        })
-        return promise
-
-      }
-
-    //getRepo(repoQuery:string){
-    //  interface getD
-    //}
-
-
 
 }

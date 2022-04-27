@@ -1,5 +1,10 @@
 export class GitRepo{
-  constructor(public name:string,public description:string){
+  "shows":[
+    {
+      id: string
+      name: string
+    }
+  ]
 
   }
-}
+
