@@ -1,6 +1,8 @@
 # GitSearch
 
 A Simple App that returns a git users name, avatar and Repo List, along with a search function
+
+Live Page Link: https://gear5km.github.io/gitSearch/
 ## Structure
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
