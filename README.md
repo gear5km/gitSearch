@@ -5,13 +5,17 @@ A Simple App that returns a git users name, avatar and Repo List, along with a s
 Live Page Link: https://gear5km.github.io/gitSearch/
 ## Structure
 
-Navbar Component - Displays logo and black navbar
-search-user componet- Gets a username from the form field
-userParserService - http service that takes in a username from the form field in the search user component and passes it to the GitHub API
-methods:
+## Navbar Component 
+- Displays logo and black navbar
+## search-user componet
+- Gets a username from the form field
+## userParserService 
+- http service that takes in a username from the form field in the search user component and passes it to the GitHub API
 
-getUser() -takes in username and passes it to Github api returning an a user that matches the input in the form field
-getRepo()- takes in username and passes it to Github api returning an array of repositories
+### methods:
+
+#### getUser() -takes in username and passes it to Github api returning an a user that matches the input in the form field
+#### getRepo()- takes in username and passes it to Github api returning an array of repositories
 
 ## TO deploy
 
