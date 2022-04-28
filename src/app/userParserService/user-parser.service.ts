@@ -4,7 +4,6 @@ import { GitRepo } from '../git-repo-template';
 import { HttpClient } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
 import {environment} from '../../environments/environment'
-import { string } from 'node_modules23/postcss-selector-parser/postcss-selector-parser';
 
 @Injectable({
   providedIn: 'root'

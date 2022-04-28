@@ -1,10 +1,16 @@
 
 <p>This is {{user.userLogin}} 's Repository</p>
-<input type="text" [formControl]="repoQuery" class="form-control" style="width:300px"/>
-<button class="btn btn-primary" (click)="getRepo()">GET REPOS!</button>
+<!--<input type="text" [formControl]="repoQuery" class="form-control" style="width:300px"/>-->
+<button class="btn btn btn-dark" (click)="getRepo()">GET REPOS!</button>
+<br>
 <div class="container" *ngFor="let userRepo of userRepo">
-  <div class="card">
-    <p>{{userRepo.name}}</p>
-  </div>
+  <br>
+  <div class="card" style="width:400px">
+    <div class="card-header" style="background-color:grey">
+      <p>{{userRepo.name}}</p>
+    </div>
 
+    <p>Description: {{userRepo.description}}</p>
+  </div>
+  <br>
 </div>

@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 
-<div class="container">
+<div class="container" style="margin-left: 35%">
   <!--<h2>search-userworks!</h2>-->
   <input type="text" [formControl]="userQuery" placeholder="Enter a git User Name here" class="form-control" style="width:300px"/>
   <br>
-  <button class="btn btn-primary" (click)="checkUser()" style="width: 150px; height:50px; margin-left:5%">Search User</button>
-  <div *ngIf="checkUserInit" class="container" style="margin-top:10%">
-    <h4> User Search result: {{this.user.userLogin}}</h4>
-    <img [src]="this.user.avatar_url" style="width:250px; height:350px">
+  <button class="btn btn btn-dark" (click)="checkUser()" style="width: 150px; height:50px; margin-left:8%">Search User</button>
   </div>
-  <app-search-repo *ngIf="checkUserInit" [user]="user"></app-search-repo>
-</div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="checkUserInit" class="container" style="margin-top:10%">
+        <h4> User Search result: {{this.user.userLogin}}</h4>
+        <br>
+        <p>User Avatar:</p>
+        <img [src]="this.user.avatar_url" style="width:250px; height:350px">
+      </div>
+    </div>
+    <div class="col">
+      <app-search-repo *ngIf="checkUserInit" [user]="user"></app-search-repo>
+    </div>
+  </div>
+
+
+
+
