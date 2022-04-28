@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchUserComponent } from './search-user/search-user.component';
 import { SearchRepoComponent } from './search-repo/search-repo.component';
+import { NoUserDirective } from './no-user.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SearchUserComponent,
-    SearchRepoComponent
+    SearchRepoComponent,
+    NoUserDirective
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,8 @@
 
 <div class="container" style="margin-left: 35%">
   <!--<h2>search-userworks!</h2>-->
-  <input type="text" [formControl]="userQuery" placeholder="Enter a git User Name here" class="form-control" style="width:300px"/>
+  <p>You may have to click the button twice</p>
+  <input appNoUser type="text" [formControl]="userQuery" placeholder="Enter a git User Name here" class="form-control" style="width:300px"/>
   <br>
   <button class="btn btn btn-dark" (click)="checkUser()" style="width: 150px; height:50px; margin-left:8%">Search User</button>
   </div>

@@ -32,6 +32,8 @@ export class SearchUserComponent implements OnInit {
     }
     else{
       this.checkUserInit=false
+      alert ("No User with that name Found!")
+      
     }
 
   }

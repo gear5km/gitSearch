@@ -34,7 +34,7 @@ export class SearchRepoComponent implements OnInit {
  });
 
 
-    alert(this.userRepo.length)
+    alert(this.user.userLogin + " has " + this.userRepo.length + " Repositories")
 
 
   }
